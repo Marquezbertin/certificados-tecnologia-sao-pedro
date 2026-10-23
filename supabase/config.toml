@@ -1,2 +1,5 @@
 ﻿[functions.verify-certificate]
 verify_jwt = false
+
+[functions.admin-certificates]
+verify_jwt = true
