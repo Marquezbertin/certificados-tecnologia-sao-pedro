@@ -1,5 +1,5 @@
-# Deploy de produ??o sincronizado pela integra??o Supabase do GitHub.
-﻿[functions.verify-certificate]
+# Production deploy uses the Supabase GitHub integration.
+[functions.verify-certificate]
 verify_jwt = false
 
 [functions.admin-certificates]
