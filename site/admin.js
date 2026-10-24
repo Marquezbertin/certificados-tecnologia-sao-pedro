@@ -107,20 +107,40 @@
       const code = document.createElement("span"); code.className = "code"; code.textContent = item.code;
       row.append(name, document.createTextNode(" · "), code); list.append(row);
       const url = new URL("./", window.location.href);
-      const sheet = document.createElement("article"); sheet.className = "certificate-sheet";
-      const content = [
-        ["h1","","Certificado"],
-        ["p","certificate-copy","Certificamos que"],["p","certificate-name",item.name],
-        ["p","certificate-copy","concluiu a atividade formativa"],["p","certificate-name",item.course],
-        ["p","certificate-copy","com carga horária de " + item.hours + " horas."],
-        ["p","certificate-meta","Emitido em " + item.issuedOn],
-        ["p","certificate-code","Código verificador: " + item.code],
-        ["p","certificate-link","Valide em " + url.href],
-        ["p","certificate-footer","A validade pode ser consultada no endereço indicado, usando o código acima."]
-      ];
-      const logo = document.createElement("img"); logo.className = "certificate-logo"; logo.src = "./assets/logo-horizontal-branco-fundo-azul.png"; logo.alt = "Tecnologia na Prática · São Pedro/SP"; sheet.append(logo);
-      content.forEach(([tag, cls, text]) => { const node = document.createElement(tag); if (cls) node.className = cls; node.textContent = text; sheet.append(node); });
-      printArea.append(sheet);
+      const make = (tag, className, text, parent) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== null && text !== undefined) node.textContent = text;
+        if (parent) parent.append(node);
+        return node;
+      };
+      const sheet = make("article", "certificate-sheet");
+      const frame = make("div", "certificate-frame", null, sheet);
+      const logo = make("img", "certificate-logo", null, frame);
+      logo.src = "./assets/logo-horizontal-branco-fundo-azul.png";
+      logo.alt = "Tecnologia na Prática · São Pedro/SP";
+      make("p", "certificate-eyebrow", "FORMAÇÃO · TECNOLOGIA · FUTURO", frame);
+      make("h1", "certificate-title", "CERTIFICADO", frame);
+      make("span", "certificate-rule", null, frame);
+      make("p", "certificate-copy", "Certificamos que", frame);
+      make("h2", "certificate-student", item.name, frame);
+      make("p", "certificate-copy", "concluiu com aproveitamento a atividade formativa", frame);
+      make("p", "certificate-course", item.course, frame);
+      const details = make("div", "certificate-details", null, frame);
+      const hours = make("div", "certificate-detail", null, details);
+      make("span", "certificate-detail-label", "CARGA HORÁRIA", hours);
+      make("strong", "", item.hours + " horas", hours);
+      const date = make("div", "certificate-detail", null, details);
+      make("span", "certificate-detail-label", "DATA DE EMISSÃO", date);
+      make("strong", "", item.issuedOn, date);
+      const validation = make("div", "certificate-validation", null, frame);
+      const codeBlock = make("div", "certificate-validation-code", null, validation);
+      make("span", "certificate-detail-label", "CÓDIGO VERIFICADOR", codeBlock);
+      make("strong", "", item.code, codeBlock);
+      const verifyBlock = make("div", "certificate-validation-link", null, validation);
+      make("span", "certificate-detail-label", "VALIDAÇÃO ONLINE", verifyBlock);
+      make("span", "", url.href, verifyBlock);
+      make("p", "certificate-footer", "Documento verificável online · Apresente o código acima para confirmar a autenticidade.", frame);      printArea.append(sheet);
     });
   }
 

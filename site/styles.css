@@ -18,4 +18,24 @@ label{display:block;font-weight:700;margin:0 0 8px}input,textarea{width:100%;bor
 
 .brand img{display:block;width:clamp(155px,24vw,230px);height:auto}
 .certificate-logo{width:74mm;max-width:60%;height:auto;align-self:center;margin-bottom:8mm;background:#fff8ec;border-radius:4px}
-@media print{.certificate-sheet{height:178mm!important;min-height:0!important;padding:8mm 14mm!important;page-break-inside:avoid;break-inside:avoid}.certificate-sheet h1{font-size:28pt!important;margin:4mm 0 2mm!important}.certificate-sheet p{margin:2mm 0!important}.certificate-name{font-size:24pt!important;margin:3mm 0 4mm!important}.certificate-copy{font-size:13pt!important}.certificate-meta{font-size:10pt!important;margin-top:3mm!important}.certificate-code{font-size:9pt!important;margin-top:2mm!important}.certificate-link{font-size:9pt!important;margin:2mm 0!important}.certificate-footer{font-size:9pt!important;margin-top:3mm!important}.certificate-logo{width:82mm!important;max-width:60%!important;margin:0 auto 4mm!important;background:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:A4 landscape;margin:8mm}}
+@media print{.certificate-sheet{height:178mm!important;min-height:0!important;padding:8mm 14mm!important;page-break-inside:avoid;break-inside:avoid}.certificate-sheet h1{font-size:28pt!important;margin:4mm 0 2mm!important}.certificate-sheet p{margin:2mm 0!important}.certificate-name{font-size:24pt!important;margin:3mm 0 4mm!important}.certificate-copy{font-size:13pt!important}.certificate-meta{font-size:10pt!important;margin-top:3mm!important}.certificate-code{font-size:9pt!important;margin-top:2mm!important}.certificate-link{font-size:9pt!important;margin:2mm 0!important}.certificate-footer{font-size:9pt!important;margin-top:3mm!important}.certificate-logo{width:82mm!important;max-width:60%!important;margin:0 auto 4mm!important;background:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}@page{size:A4 landscape;margin:8mm}}.certificate-sheet{position:relative;box-sizing:border-box;overflow:hidden;color:#1f2933;background:#fff}
+.certificate-sheet::before{content:"";position:absolute;z-index:3;left:0;top:0;width:100%;height:2.2mm;background:linear-gradient(90deg,#1657a8 0 76%,#e3b341 76% 100%)}
+.certificate-sheet::after{content:"";position:absolute;top:8mm;right:8mm;width:24mm;height:24mm;opacity:.32;background-image:radial-gradient(#1657a8 1px,transparent 1px);background-size:4mm 4mm;pointer-events:none}
+.certificate-frame{position:relative;z-index:1;box-sizing:border-box;width:100%;height:100%;border:1px solid #cbd7e4;padding:6mm 10mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(145deg,#fff 55%,#f5f9fe)}
+.certificate-logo{display:block;width:76mm;max-width:60%;height:auto;margin:0 auto 2mm}
+.certificate-eyebrow{margin:1mm 0;color:#17795c;font-size:8pt;font-weight:800;letter-spacing:.22em}
+.certificate-title{margin:1mm 0!important;color:#123b68;font-size:25pt!important;line-height:1.05;letter-spacing:.16em;font-weight:800}
+.certificate-rule{width:18mm;height:1mm;margin:2mm 0;background:#e3b341}
+.certificate-copy{margin:1mm 0!important;color:#596b7c;font-size:11pt!important}
+.certificate-student{max-width:90%;margin:2mm 0 3mm;color:#123b68;font-size:25pt;line-height:1.1;font-weight:750;border-bottom:1px solid #cbd7e4;padding:0 10mm 2mm}
+.certificate-course{margin:1mm 0 3mm;color:#1657a8;font-size:16pt;font-weight:750;line-height:1.2}
+.certificate-details{display:flex;justify-content:center;gap:8mm;margin:1mm 0 3mm}
+.certificate-detail{min-width:42mm;padding:2mm 5mm;border:1px solid #d9e2ec;border-left:1mm solid #e3b341;background:#f5f8fc;text-align:left}
+.certificate-detail-label{display:block;color:#718096;font-size:7pt;font-weight:800;letter-spacing:.12em}
+.certificate-detail strong{display:block;margin-top:.5mm;color:#123b68;font-size:10pt}
+.certificate-validation{box-sizing:border-box;width:100%;display:flex;align-items:center;justify-content:space-between;gap:8mm;padding:3mm 5mm;margin-top:1mm;background:#123b68;color:#fff;text-align:left}
+.certificate-validation .certificate-detail-label{color:#c8d8eb}
+.certificate-validation-code strong{display:block;margin-top:1mm;font:700 11pt Consolas,monospace;letter-spacing:.06em;color:#fff}
+.certificate-validation-link{max-width:48%;overflow-wrap:anywhere;font-size:8pt;color:#fff;text-align:right}
+.certificate-footer{margin:2mm 0 0;color:#718096;font-size:8pt}
+@media print{.certificate-sheet{height:178mm!important;min-height:0!important;padding:5mm!important;page-break-inside:avoid;break-inside:avoid}.certificate-frame{padding:5mm 9mm!important}.certificate-logo{width:76mm!important;max-width:60%!important;margin:0 auto 2mm!important}.certificate-footer{font-size:8pt!important}.certificate-sheet:last-child{page-break-after:auto;break-after:auto}}
