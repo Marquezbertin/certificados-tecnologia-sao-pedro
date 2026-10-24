@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const cfg = window.CERTIFICATES_CONFIG || {};
   const configured = Boolean(cfg.supabaseUrl && cfg.publishableKey);
   const baseUrl = (cfg.supabaseUrl || "").replace(/\/$/, "");
@@ -109,7 +109,7 @@
       const url = new URL("./", window.location.href);
       const sheet = document.createElement("article"); sheet.className = "certificate-sheet";
       const content = [
-        ["div","certificate-brand","Tecnologia na Prática · São Pedro/SP"],["h1","","Certificado"],
+        ["h1","","Certificado"],
         ["p","certificate-copy","Certificamos que"],["p","certificate-name",item.name],
         ["p","certificate-copy","concluiu a atividade formativa"],["p","certificate-name",item.course],
         ["p","certificate-copy","com carga horária de " + item.hours + " horas."],
@@ -118,6 +118,7 @@
         ["p","certificate-link","Valide em " + url.href],
         ["p","certificate-footer","A validade pode ser consultada no endereço indicado, usando o código acima."]
       ];
+      const logo = document.createElement("img"); logo.className = "certificate-logo"; logo.src = "./assets/logo-horizontal.png"; logo.alt = "Tecnologia na Prática · São Pedro/SP"; sheet.append(logo);
       content.forEach(([tag, cls, text]) => { const node = document.createElement(tag); if (cls) node.className = cls; node.textContent = text; sheet.append(node); });
       printArea.append(sheet);
     });
