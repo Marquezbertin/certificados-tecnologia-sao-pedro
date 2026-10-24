@@ -29,7 +29,12 @@
       data.records.forEach(record => {
         const tr = document.createElement("tr");
         [record.course_title, record.workload_hours + " h", record.issued_on, record.status === "valid" ? "Válido" : "Revogado"].forEach(value => {
-          const td = document.createElement("td");
+          const td = document.createElement("td"); td.textContent = value;
+          if (value === "Válido") td.className = "status-valid";
+          if (value === "Revogado") td.className = "status-revoked";
+          tr.append(td);
+        });
+        const td = document.createElement("td");
         if (record.status === "valid") {
           const actions = document.createElement("div"); actions.className = "record-actions";
           const reprint = document.createElement("button"); reprint.type = "button"; reprint.className = "button-secondary"; reprint.textContent = "Imprimir 2ª via";
@@ -54,7 +59,6 @@
       say(recordsMessage, data.records.length + " registros recentes. Sem nomes armazenados.");
     } catch (error) { say(recordsMessage, error.message, true); }
   }
-
   byId("login-form").addEventListener("submit", async event => {
     event.preventDefault();
     if (!configured) return say(loginMessage, "Configure URL e chave publishable do Supabase.", true);
