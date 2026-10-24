@@ -39,3 +39,4 @@ label{display:block;font-weight:700;margin:0 0 8px}input,textarea{width:100%;bor
 .certificate-validation-link{max-width:48%;overflow-wrap:anywhere;font-size:8pt;color:#fff;text-align:right}
 .certificate-footer{margin:2mm 0 0;color:#718096;font-size:8pt}
 @media print{.certificate-sheet{height:178mm!important;min-height:0!important;padding:5mm!important;page-break-inside:avoid;break-inside:avoid}.certificate-frame{padding:5mm 9mm!important}.certificate-logo{width:76mm!important;max-width:60%!important;margin:0 auto 2mm!important}.certificate-footer{font-size:8pt!important}.certificate-sheet:last-child{page-break-after:auto;break-after:auto}}
+.record-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.record-actions button{padding:8px 10px;font-size:12px}

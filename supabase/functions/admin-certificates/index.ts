@@ -1,4 +1,4 @@
-﻿import { createClient } from "npm:@supabase/supabase-js@2";
+import { createClient } from "npm:@supabase/supabase-js@2";
 const cors = { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "authorization, apikey, content-type", "Access-Control-Allow-Methods": "POST, OPTIONS", "Cache-Control": "no-store" };
 const json = (data: unknown, status = 200) => new Response(JSON.stringify(data), { status, headers: { ...cors, "Content-Type": "application/json" } });
 
@@ -35,7 +35,7 @@ Deno.serve(async request => {
       return json({ records: data });
     }
     if (body.action === "list") {
-      const { data, error } = await db.from("certificates").select("id,course_title,workload_hours,issued_on,status").order("created_at", { ascending: false }).limit(250);
+      const { data, error } = await db.from("certificates").select("id,code_hash,course_title,workload_hours,issued_on,status").order("created_at", { ascending: false }).limit(250);
       if (error) throw error;
       return json({ records: data });
     }
