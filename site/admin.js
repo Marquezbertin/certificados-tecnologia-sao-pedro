@@ -118,7 +118,7 @@
         ["p","certificate-link","Valide em " + url.href],
         ["p","certificate-footer","A validade pode ser consultada no endereço indicado, usando o código acima."]
       ];
-      const logo = document.createElement("img"); logo.className = "certificate-logo"; logo.src = "./assets/logo-horizontal.png"; logo.alt = "Tecnologia na Prática · São Pedro/SP"; sheet.append(logo);
+      const logo = document.createElement("img"); logo.className = "certificate-logo"; logo.src = "./assets/logo-horizontal-branco-fundo-azul.png"; logo.alt = "Tecnologia na Prática · São Pedro/SP"; sheet.append(logo);
       content.forEach(([tag, cls, text]) => { const node = document.createElement(tag); if (cls) node.className = cls; node.textContent = text; sheet.append(node); });
       printArea.append(sheet);
     });
